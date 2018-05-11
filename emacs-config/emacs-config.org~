@@ -1,0 +1,31 @@
+* Package Management
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-archives '(("melpa"     . "https://melpa.org/packages/")
+                         ("org"       . "http://orgmode.org/elpa/")))
+(package-initialize)
+#+END_SRC
+
+* Use package
+#+BEGIN_SRC emacs-lisp
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+#+END_SRC
+
+
+* Theme und Schrift
+#+BEGIN_SRC emacs-lisp
+(load-theme 'wombat)
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-16"))
+#+END_SRC
+
+* Which key
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :ensure t 
+  :config
+  (which-key-mode))
+#+END_SRC
